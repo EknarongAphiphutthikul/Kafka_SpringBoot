@@ -18,6 +18,10 @@ public abstract class KafkaProducerConfig {
 		configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		configProps.put(ProducerConfig.ACKS_CONFIG, "all");
 		configProps.put(ProducerConfig.CLIENT_ID_CONFIG, "demo-producer");
+		configProps.put(ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG, 120000);
+		configProps.put(ProducerConfig.LINGER_MS_CONFIG, 60000);
+		configProps.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG, 30000);
+		configProps.put(ProducerConfig.BATCH_SIZE_CONFIG, 33554432); // default 16384
 		return new DefaultKafkaProducerFactory<>(configProps);
 	}
 
